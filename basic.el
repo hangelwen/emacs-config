@@ -49,7 +49,7 @@
 ;;all the other except the 7 above
 (setq delete-old-versions t)
 ;;backup path
-(setq backup-directory-alist '(("." . "~/.emacs.d/.emacs.tmp")))
+(setq backup-directory-alist '(("." . "~/.emacs.tmp.bak")))
 ;;
 (setq backup-by-copying t)
 

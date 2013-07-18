@@ -8,7 +8,7 @@
 ;; Version:
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 0
+;;     Update #: 1
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,32 +45,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(load-file "~/.emacs.d/personal/site-lisp/webjump-plus.el")
-(require 'webjump-plus)
-
-(setq webjump-sites
-      (append '(
-                ("My Home Page" . "cse.msu.edu")
-                )
-              webjump-plus-sites
-              webjump-sample-sites))
 
 ;(set-face-background 'magit-item-highlight "#696969")
 ;(set-face-background 'diff-file-header "#f21212")
 ;(set-face-foreground 'diff-context "#666666")
 ;(set-face-foreground 'diff-added "#00cc33")
 ;(set-face-foreground 'diff-removed "#ff0000")
-
-;; (defun update-diff-colors ()
-;;   "update the colors for diff faces"
-;;   (set-face-attribute 'diff-added nil
-;;                       :foreground "white" :background "blue")
-;;   (set-face-attribute 'diff-removed nil
-;;                       :foreground "white" :background "red3")
-;;   (set-face-attribute 'diff-changed nil
-;;                       :foreground "white" :background "purple"))
-;; (eval-after-load "diff-mode"
-;;   '(update-diff-colors))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; test.el ends here
