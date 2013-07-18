@@ -8,7 +8,7 @@
 ;; Version:
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 0
+;;     Update #: 3
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -70,7 +70,7 @@
 ;;; pip install flake8
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (prelude-ensure-module-deps '(flymake-python-pyflakes))
-(add-hook 'python-mode-hook 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 ;; use flake8 instead of pyflakes
 ;(setq flymake-python-pyflakes-executable "flake8")
 
