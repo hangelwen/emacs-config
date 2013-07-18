@@ -8,7 +8,7 @@
 ;; Version:
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 0
+;;     Update #: 121
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -47,19 +47,18 @@
 ;;; Code:
 
 
-
+;;;; F keys
 (global-set-key [f1] 'info)
-
 (global-set-key [f2] 'undo)
-`
 (global-set-key [f3] 'redo)
-
 (global-set-key [f4] 'kill-this-buffer)
 (global-set-key [f5] 'term)
 (global-set-key [f6] 'dired-jump)
-
+;;smart compile
+(global-set-key [f7] 'compile-dwim-compile)
+(global-set-key [f8] 'compile-dwim-run)
+(global-set-key [f9] 'smart-compile)
 (global-set-key [f10] 'menu-bar-mode)
-
 (global-set-key [f12] 'gdb)
 
 (global-set-key [(home)] 'beginning-of-buffer)
@@ -69,66 +68,69 @@
 (global-set-key [(meta left)] 'backward-sexp)
 (global-set-key [(meta right)] 'forward-sexp)
 
-(global-set-key [(control o)] 'other-window)
-(global-set-key [(control tab)] 'tabbar-forward)
-(setq outline-minor-mode-prefix [(control o)])
 
-(define-prefix-command 'ctl-z-map)
-(global-set-key (kbd "C-z") 'ctl-z-map)
-(global-set-key (kbd "C-z b") 'emacs-lisp-byte-compile)
-(global-set-key (kbd "C-z c") 'calendar)
-(global-set-key (kbd "C-z f m") 'flyspell-mode)
-(global-set-key (kbd "C-z f b") 'flyspell-buffer)
-(global-set-key (kbd "C-z g") 'gnus)
-(global-set-key (kbd "C-x C-/") 'redo)
-(global-set-key (kbd "C-z i") 'ispell-minor-mode)
+;; make 'M-:' pretty-print
+(global-set-key [remap eval-expression] 'pp-eval-expression)
+;; make 'C-x C-e' pretty-print
+(global-set-key [remap eval-last-sexp] 'pp-eval-last-sexp)
+
+
+;;;; ctr-l as a prefix
+(global-unset-key "\C-l")
+(define-prefix-command 'ctl-l-map)
+
+
+;; emacs elisp related
+(global-set-key (kbd "C-l l c") 'emacs-lisp-byte-compile)
+(global-set-key (kbd "C-l l l") 'emacs-lisp-byte-compile-and-load)
+(global-set-key (kbd "C-l l b") 'eval-buffer)
+(global-set-key (kbd "C-l l r") 'eval-region)
+
+
+;; flyspell mode related
+(global-set-key (kbd "C-l f m") 'flyspell-mode)
+(global-set-key (kbd "C-l f p") 'flyspell-prog-mode)
+(global-set-key (kbd "C-l f b") 'flyspell-buffer)
+(global-set-key (kbd "C-l f r") 'flyspell-region)
+;;ispell
+(global-set-key (kbd "C-l i m") 'ispell-minor-mode)
+(global-set-key (kbd "C-l i w") 'ispell-word)
+(global-set-key (kbd "C-l i b") 'ispell-buffer)
+(global-set-key (kbd "C-l i r") 'ispell-region)
 
 ;;debug
-(global-set-key (kbd "C-z j") 'jdb)
-(global-set-key (kbd "C-z k") 'browse-kill-ring)
-(global-set-key (kbd "C-z l") 'lpr-buffer)
+(global-set-key (kbd "C-l d j") 'jdb)
+(global-set-key (kbd "C-l d g") 'gdb)
+
+(global-set-key (kbd "C-l k") 'browse-kill-ring)
+
+;; narrow and widen
+(global-set-key (kbd "C-l n n") 'narrow-to-region)
+(global-set-key (kbd "C-l n d") 'narrow-to-defun)
+(global-set-key (kbd "C-l n p") 'narrow-to-page)
+(global-set-key (kbd "C-l n w") 'widen)
 
 
-(global-set-key (kbd "C-z n n") 'narrow-to-region)
-(global-set-key (kbd "C-z n w") 'widen)
-(global-set-key (kbd "C-z o") 'occur)
+;;occur and moccur
+(global-set-key (kbd "C-l o o") 'occur)
+(global-set-key (kbd "C-l o m") 'moccur)
+
+(global-set-key (kbd "C-l q") 'kill-this-buffer)
+(global-set-key (kbd "C-l r") 'query-replace-regexp)
+(global-set-key (kbd "C-l t") 'term)
 
 
-(global-set-key (kbd "C-z q") 'kill-this-buffer)
-(global-set-key (kbd "C-z r") 'query-replace-regexp)
+(global-set-key (kbd "C-l =") 'er/expand-region)
+(global-set-key (kbd "C-l n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-l p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-l SPC") 'set-rectangular-region-anchor)
 
-(global-set-key (kbd "C-z t") 'term)
-(global-set-key (kbd "C-z v") 'vi-mode)
-(global-set-key (kbd "C-z u d") 'dired-jump)
-(global-set-key (kbd "C-z u f") 'folding-mode)
-(global-set-key (kbd "C-z u o") 'outline-minor-mode)
-(global-set-key (kbd "C-z u s") 'services-look-up)
-(global-set-key (kbd "C-z w c") 'emacs-wiki-change-project)
-(global-set-key (kbd "C-z w f") 'emacs-wiki-find-file)
-(global-set-key (kbd "C-z w h") 'emacs-wiki-preview-html)
-(global-set-key (kbd "C-z w i") 'emacs-wiki-index)
-(global-set-key (kbd "C-z w p") 'emacs-wiki-publish)
-(global-set-key (kbd "C-z w s") 'emacs-wiki-search)
+(global-set-key (kbd "C-l c") 'calendar)
 
 
-(global-set-key (kbd "C-z x") 'emacs-lisp-byte-compile-and-load)
-(global-set-key (kbd "C-z y") 'clipboard-yank)
-(global-set-key (kbd "C-z z") 'set-mark-command)
-(global-set-key (kbd "C-z C-z") 'set-mark-command)
-
-
-;;C-c C-k is used in term mode as term-char-mode
-;(global-set-key (kbd "C-c C-k") 'browse-kill-ring)
 (global-set-key (kbd "C-c C-q") 'auto-fill-mode)
-
 ;; webjump
 (global-set-key "\C-cj" 'webjump)
-
-;;smart compile
-(global-set-key (kbd "<f9>") 'smart-compile)
-
-(global-set-key [f7] 'compile-dwim-compile)
-(global-set-key [f8] 'compile-dwim-run)
 
 ;; smex
 (global-set-key (kbd "M-x") 'smex)
