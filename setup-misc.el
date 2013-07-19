@@ -8,7 +8,7 @@
 ;; Version:
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 0
+;;     Update #: 3
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -104,5 +104,17 @@
 (add-hook 'c-mode-common-hook   'auto-make-header)
 (autoload 'auto-update-file-header "header2")
 (add-hook 'write-file-hooks 'auto-update-file-header)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; GNU global
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load-file "~/.emacs.d/personal/site-lisp/ggtags-0.6.6.el")
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+              (ggtags-mode 1))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; setup-misc.el ends here

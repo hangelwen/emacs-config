@@ -19,3 +19,5 @@ savefile/
 projectile-bookmarks.eld
 session*
 /.projectile
+/.zcache/DEBS_avail
+/.zcache/DEBS_installed
