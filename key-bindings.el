@@ -8,7 +8,7 @@
 ;; Version:
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 121
+;;     Update #: 128
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -131,6 +131,10 @@
 (global-set-key (kbd "C-c C-q") 'auto-fill-mode)
 ;; webjump
 (global-set-key "\C-cj" 'webjump)
+
+;;magit-log
+(global-unset-key "\C-xl")
+(global-set-key "\C-xl" 'magit-log)
 
 ;; smex
 (global-set-key (kbd "M-x") 'smex)
