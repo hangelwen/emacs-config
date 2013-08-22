@@ -21,3 +21,5 @@ session*
 /.projectile
 /.zcache/DEBS_avail
 /.zcache/DEBS_installed
+/libpeerconnection.log
+/editor.sh

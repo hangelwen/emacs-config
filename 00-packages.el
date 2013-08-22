@@ -179,5 +179,7 @@
 (prelude-ensure-module-deps '(yasnippet))
 (yas-global-mode 1)
 
+(global-flycheck-mode 0)
+
 (provide '00-packages)
 ;;; 00-packages.el ends here
